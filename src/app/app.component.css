@@ -1,0 +1,40 @@
+.tile {
+    flex: 1 0 300px;
+    background-color: #fff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 70px 70px;
+    border-radius: 25px;
+    transition: transform 0.3s ease-in-out;
+    border: 5px solid black;
+    margin: auto;
+    height: 300px;
+    text-align: center;
+    margin-top: 15%;
+    margin-right: 5%;
+    margin-left: 5%;
+    background-size: contain;
+}
+
+.tile:hover {
+    transform: scale(1.15);
+    border-color: yellow;
+}
+
+
+.portal-list{
+    display: flex;
+}
+
+
+#tile1{
+    background-image: url(../../resources/QUT.png);
+}
+
+
+#tile2{
+    background-image: url(../../resources/Github.png);
+}
+
+#tile3{
+    background-image: url(../../resources/Google.png);
+}
