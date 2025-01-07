@@ -1,6 +1,7 @@
 /* You can add global styles to this file, and also import other style files */
 body{
-    background-image: url("../resources/cat-image.jpeg");
+    background-image: url("../resources/cat.gif");
+    background-size:auto;
     align-items: center;
     text-align: center;
     align-content: center;
