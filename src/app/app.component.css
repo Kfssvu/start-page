@@ -12,7 +12,7 @@
     margin-top: 15%;
     margin-right: 5%;
     margin-left: 5%;
-    background-size: contain;
+    background-size:cover;
 }
 
 .tile:hover {
@@ -27,7 +27,7 @@
 
 
 #tile1{
-    background-image: url(../../resources/QUT.png);
+    background-image: url(../../resources/QUT1.png);
 }
 
 
