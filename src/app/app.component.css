@@ -73,7 +73,7 @@
 #settings-button:hover i {
   color: rgb(4, 216, 235);
   animation: spin-animation 2s linear infinite;
-}
+} /*something*/
 
 @keyframes spin-animation {
   0% {
