@@ -1,18 +1,18 @@
 .tile {
-    flex: 1 0 300px;
+    flex: 1 0 20%;
     background-color: #fff;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    padding: 70px 70px;
+    padding: 10% 10%;
     border-radius: 25px;
     transition: transform 0.3s ease-in-out;
     border: 5px solid black;
     margin: auto;
-    height: 300px;
+    height: 20%;
     text-align: center;
     margin-top: 15%;
     margin-right: 5%;
     margin-left: 5%;
-    background-size:cover;
+    background-size: cover;
 }
 
 .tile:hover {
@@ -26,7 +26,7 @@
 }
 
 
-#tile1{
+/* #tile1{
     background-image: url(../../resources/QUT1.png);
 }
 
@@ -37,4 +37,85 @@
 
 #tile3{
     background-image: url(../../resources/Google.png);
+    background-position-y: 30%;
+} */
+
+#settings-button {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  font-size: 24px;
+  transition: transform 0.3s ease-in-out;
+  cursor: pointer;
+}
+
+#settings-button i {
+    display: inline-block; 
+  /* Style the icon itself */
+  font-size: 1em; /* Adjust icon size as needed */
+  color: #fff; /* White icon, or any color */
+  text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+  transition:  color 0.3s ease-in-out; /* Optional: add a subtle shadow */
+}
+
+#settings-button:hover {
+    transform: scale(1.1); 
+    background-color: #000912; /* Darker blue on hover */
+}
+
+/* Optional: Hover effect */
+#settings-button:hover i {
+  color: rgb(4, 216, 235);
+  animation: spin-animation 2s linear infinite;
+}
+
+@keyframes spin-animation {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(359deg);
+  }
+}
+
+.settings-pane {
+  position: fixed;
+  top: 20%;
+  left: 50%;
+  transform: translate(-50%, 0);
+  background: rgb(0, 0, 0);
+  border: 1px solid #ccc;
+    border-radius: 8px;
+  padding: 2rem;
+  z-index: 1000;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+  color: white;
+}
+
+#userinput {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  flex-direction: row;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 5px;
+}
+
+#input {
+  width: 30%;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  display: flex;
+  padding: 5px;
+  margin-left: 5%;
 }
