@@ -91,6 +91,21 @@ export class AppComponent {
         this.backgroundImageUrl2 = localStorage.getItem('Image2')? `url(${localStorage.getItem('Image2')})`: 'url(Github.png)';
         this.backgroundImageUrl3 = localStorage.getItem('Image3')? `url(${localStorage.getItem('Image3')})`: 'url(Google.png)';
       }
+      const hour = new Date().getHours();
+      console.log('Current hour:', hour);
+      let bgUrl = '';
+      let bgsize = '';
+      if (hour >= 6 && hour < 18) {
+        // Daytime
+        bgUrl = 'url("cat.gif")';
+        bgsize = "100%";
+      } else {
+        // Nighttime
+        bgUrl = 'url("nights.gif")';
+        bgsize = "100% 150%";
+      }
+      document.body.style.backgroundImage = bgUrl;
+      document.body.style.backgroundSize = bgsize;
     }
 
   public GotoURL1(){
