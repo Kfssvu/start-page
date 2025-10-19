@@ -30,6 +30,10 @@ export class AppComponent {
   // public changeBackground(newImageUrl: string) {
   //   this.backgroundImageUrl = `url(${newImageUrl})`;
   // }
+
+  GotoGemini() {
+   window.location.href = 'https://gemini.google.com/app';
+  }
   
 
   public GotoSettings(){
