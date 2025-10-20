@@ -124,7 +124,7 @@ export class AppComponent {
       let bgsize = '';
       if (hour >= 6 && hour < 18) {
         // Daytime
-        bgUrl = 'url("nightIII.gif")';
+        bgUrl = 'url("cat.gif")';
         bgsize = "100%";
       } else {
         // Nighttime
