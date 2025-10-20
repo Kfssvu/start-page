@@ -17,12 +17,17 @@ export class AppComponent {
   link1: string = '';
   link2: string = '';
   link3: string = '';
+  oldimageData1: string | null = null;
+  oldimageData2: string | null = null;
+  oldimageData3: string | null = null;
   imageData1: string | null = null;
   imageData2: string | null = null;
   imageData3: string | null = null;
   backgroundImageUrl: string = '' ;
   backgroundImageUrl2: string = '' ;
   backgroundImageUrl3: string = '' ;
+  selectedAssistant: string = 'gemini';
+  changedAssistant: string = 'gemini';
 
   constructor(private router:Router){
   }
@@ -34,6 +39,10 @@ export class AppComponent {
   GotoGemini() {
    window.location.href = 'https://gemini.google.com/app';
   }
+
+  GotoChatGPT(){
+    window.location.href = 'https://chatgpt.com';
+  }
   
 
   public GotoSettings(){
@@ -42,9 +51,21 @@ export class AppComponent {
 
   public CloseSettingsPane(){
     this.showSettingsPane = false;
+    this.imageData1 = this.oldimageData1;
+    this.imageData2 = this.oldimageData2;
+    this.imageData3 = this.oldimageData3;
+  }
+
+  public SaveSettingsPane(){
+    this.showSettingsPane = false;
     localStorage.setItem('Url1', this.link1);
     localStorage.setItem('Url2', this.link2);
     localStorage.setItem('Url3', this.link3);
+    localStorage.setItem('Image1', this.imageData1  || '');
+    localStorage.setItem('Image2', this.imageData2  || '');
+    localStorage.setItem('Image3', this.imageData3  || '');
+    this.selectedAssistant = this.changedAssistant;
+    localStorage.setItem('SelectedAssistant', this.selectedAssistant);
   }
 
   public ClearSettingsPane(){
@@ -60,8 +81,8 @@ export class AppComponent {
     localStorage.removeItem('Image1');
     localStorage.removeItem('Image2');
     localStorage.removeItem('Image3');
-    this.backgroundImageUrl = 'url(Google.png)';
-    this.backgroundImageUrl2 = 'url(Google.png)';
+    this.backgroundImageUrl = 'url(QUT1.png)';
+    this.backgroundImageUrl2 = 'url(Github.png)';
     this.backgroundImageUrl3 = 'url(Google.png)';
   }
 
@@ -72,14 +93,14 @@ export class AppComponent {
       reader.onload = () => {
         const result = reader.result as string;
         if (tile === 1) {
+          this.oldimageData1 = this.imageData1;
           this.imageData1 = result;
-          localStorage.setItem('Image1', result);
         } else if (tile === 2) {
+          this.oldimageData2 = this.imageData2;
           this.imageData2 = result;
-          localStorage.setItem('Image2', result);
         } else if (tile === 3) {
+          this.oldimageData3 = this.imageData3;
           this.imageData3 = result;
-          localStorage.setItem('Image3', result);
         }
       };
       reader.readAsDataURL(file);
@@ -94,6 +115,8 @@ export class AppComponent {
         this.backgroundImageUrl = localStorage.getItem('Image1') ?`url(${localStorage.getItem('Image1')})` : 'url(QUT1.png)';
         this.backgroundImageUrl2 = localStorage.getItem('Image2')? `url(${localStorage.getItem('Image2')})`: 'url(Github.png)';
         this.backgroundImageUrl3 = localStorage.getItem('Image3')? `url(${localStorage.getItem('Image3')})`: 'url(Google.png)';
+        this.selectedAssistant = localStorage.getItem('SelectedAssistant') ?? 'gemini';
+        this.changedAssistant = this.selectedAssistant;
       }
       const hour = new Date().getHours();
       console.log('Current hour:', hour);
@@ -101,11 +124,11 @@ export class AppComponent {
       let bgsize = '';
       if (hour >= 6 && hour < 18) {
         // Daytime
-        bgUrl = 'url("cat.gif")';
+        bgUrl = 'url("nightIII.gif")';
         bgsize = "100%";
       } else {
         // Nighttime
-        bgUrl = 'url("nights.gif")';
+        bgUrl = 'url("nightIII.gif")';
         bgsize = "100% 150%";
       }
       document.body.style.backgroundImage = bgUrl;

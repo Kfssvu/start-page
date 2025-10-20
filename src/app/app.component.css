@@ -53,6 +53,20 @@
   cursor: pointer;
 }
 
+#chatgpt-button {
+  position: fixed;
+  top: 20px;
+  right: 80px;
+  background-image: url(../../public/chatgpt.gif);
+  background-color: white;
+  background-size: contain;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  font-size: 24px;
+  cursor: pointer;
+}
+
 #settings-button {
   position: fixed;
   top: 20px;
@@ -131,4 +145,102 @@
   display: flex;
   padding: 5px;
   margin-left: 5%;
+}
+
+.close-btn {
+  /* Positioning the button in the top-right corner */
+  position: absolute;
+  top: 10px;
+  right: 10px;
+
+  /* Button appearance */
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+
+  /* 'X' symbol styling */
+  font-size: 24px; /* Makes the 'X' large enough */
+  line-height: 1; /* Ensures the 'X' is vertically centered within the button area */
+  color: #aaa; /* Default color */
+  transition: color 0.2s ease; /* Smooth hover effect */
+}
+.close-btn:hover {
+  color: red; /* Darker color on hover */
+}
+
+#buttoncontainer {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+
+#assistantselection {
+  position: flex;
+  right: 50px;
+  border-radius: 4px;
+  color: white; /* Make the text visible on the black background */
+  font-size: 16px;
+}
+
+#assistantselection label {
+  display: inline-flex; /* Align the custom radio with the text */
+  align-items: center; /* Vertically center the input with the text */
+  margin-left: 20px; /* Space between the Gemini and ChatGPT options */
+  cursor: pointer;
+}
+
+/* Optional: Style the radio buttons themselves */
+#assistantselection input[type="radio"] {
+  /* Adjust vertical alignment if needed */
+  position: absolute;
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+/* 4. Creating the custom radio button circle */
+#assistantselection label::before {
+  content: '';
+  display: inline-block;
+  width: 18px;
+  height: 18px;
+  margin-right: 8px;
+  border-radius: 50%; /* Makes it a circle */
+  border: 2px solid #ccc; /* Light grey border when unselected */
+  background-color: transparent;
+  transition: all 0.2s ease-in-out; /* Smooth transition for hover/selection */
+}
+
+/* 5. The SELECTED state: Add a background color to the custom circle */
+#assistantselection input[type="radio"]:checked + label::before {
+  border-color: #38bdf8; /* Bright blue border when selected */
+  background-color: #38bdf8; /* Bright blue background when selected */
+  box-shadow: 0 0 15px rgb(153, 224, 255);
+}
+
+/* 6. Creating the custom inner dot (the "pop" effect) */
+#assistantselection label::after {
+  content: '';
+  display: block;
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  margin-left: 5px; /* Adjust to align with the center of the 'before' circle */
+  border-radius: 50%;
+  background: white; /* White dot */
+  opacity: 0; /* Start hidden */
+  transform: scale(0); /* Start scaled down */
+  transition: all 0.2s ease-in-out;
+}
+
+/* 7. Show and scale up the inner dot ONLY when checked */
+#assistantselection input[type="radio"]:checked + label::after {
+  opacity: 1;
+  transform: scale(1); /* Scale up for a nice "pop" effect */
+}
+
+/* Optional: Hover effect for a little polish */
+#assistantselection label:hover::before {
+  border-color: #0f25b4; /* Darker border on hover */
 }
